@@ -1,0 +1,91 @@
+{
+  "name": "动画形象AI对话系统",
+  "version": "1.0.0",
+  "description": "基于通义百炼智能体和CosyVoice的AI对话系统,支持动画口型同步",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ai-chat-system.git"
+  },
+  "keywords": [
+    "AI",
+    "对话系统",
+    "语音合成",
+    "动画",
+    "口型同步",
+    "Vue3",
+    "Golang",
+    "WebSocket",
+    "通义百炼",
+    "CosyVoice"
+  ],
+  "components": {
+    "backend": {
+      "language": "Golang",
+      "version": "1.21+",
+      "framework": "net/http + gorilla/websocket",
+      "database": "MySQL 5.7+",
+      "dependencies": [
+        "github.com/gorilla/websocket",
+        "github.com/spf13/viper",
+        "go.uber.org/zap",
+        "gorm.io/gorm",
+        "github.com/google/uuid"
+      ]
+    },
+    "frontend": {
+      "language": "JavaScript",
+      "framework": "Vue 3",
+      "build_tool": "Vite",
+      "dependencies": [
+        "vue@3.4.0",
+        "pinia@2.1.7",
+        "vite@5.0.0"
+      ]
+    }
+  },
+  "apis": {
+    "qianwen": {
+      "name": "通义百炼智能体",
+      "endpoint": "https://dashscope.aliyuncs.com/api/v1/apps/{app_id}/completion",
+      "features": ["流式对话", "上下文管理"]
+    },
+    "cosyvoice": {
+      "name": "阿里智能语音CosyVoice",
+      "endpoint": "https://nls-gateway.cn-shanghai.aliyuncs.com/stream/v1/tts",
+      "features": ["语音合成", "多音色支持", "语速调节"]
+    }
+  },
+  "features": [
+    "AI智能对话 (流式输出)",
+    "实时语音合成",
+    "动画口型同步 (5帧切换)",
+    "WebSocket实时通信",
+    "对话历史查看",
+    "语音播放控制 (停止功能)",
+    "响应式H5界面",
+    "自动欢迎语播放",
+    "字数统计和限制 (最大10000字)",
+    "错误处理和降级"
+  ],
+  "requirements": {
+    "development": {
+      "go": "1.21+",
+      "node": "16+",
+      "mysql": "5.7+"
+    },
+    "production": {
+      "cpu": "2 cores",
+      "memory": "4GB",
+      "disk": "50GB SSD",
+      "os": "Linux (Ubuntu 20.04 / CentOS 7+)"
+    }
+  },
+  "ports": {
+    "backend_ws": 8080,
+    "backend_http": 8081,
+    "frontend_dev": 3000
+  },
+  "license": "For educational and research purposes only",
+  "author": "Your Name",
+  "contact": "your-email@example.com"
+}
